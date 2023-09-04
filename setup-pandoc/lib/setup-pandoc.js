@@ -147,7 +147,8 @@ function pandocSubdir(version) {
 function installPandocLinux(version) {
     var _a;
     return __awaiter(this, void 0, void 0, function* () {
-        const fileName = util.format("pandoc-%s-1-amd64.deb", version);
+        const fileName = process.arch === "arm64" ? util.format("pandoc-%s-1-arm64.deb", version) : util.format("pandoc-%s-1-amd64.deb", version);
+        // const fileName = util.format("pandoc-%s-1-amd64.deb", version);
         const downloadUrl = util.format("https://github.com/jgm/pandoc/releases/download/%s/%s", version, fileName);
         let downloadPath;
         try {
